@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="scripts/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body style="background: url(img/clock.png) no-repeat top center/100% 38%;"> 
+    <header style="background: white;">
+        <a href="index.html"><img style="margin-right: 30px" src="img/logo.png" /></a>
+        <div onclick="helptipx()">
+            <p><span class="helptip create-button" onclick="helptip(this)">Создать
+                <span><a style="padding-right: 74px;" class="gray-back" href="">Создать пин</a>
+                    <br /><br />
+                    <a class="gray-back" href="">Создать пин-идею</a>
+                </span>
+            </span>
+            </p>
+        </div>
+        <div class="white__place">
+            <p>
+                Недавние поисковые запросы
+            </p><br />
+            <div class="create-button">Клубничное варенье<a href=""><img src="img/close_button.png"></a></div>
+            <div class="create-button">Овсяное печенье<a href=""><img src="img/close_button.png"></a></div>
+            <br><br><br>
+            <p>Популярное в Ypin</p>
+            <img class="card-img-top" src="img/101.jpg">
+            <img class="card-img-top" src="img/102.jpg">
+            <img class="card-img-top" src="img/103.jpg">
+            <br />
+            <img class="card-img-top" src="img/104.jpg">
+            <img class="card-img-top" src="img/105.jpg">
+            <img class="card-img-top" src="img/106.jpg">
+            
+        </div>
+        <span class="search">
+            <img id="search__button" style="padding-right: 20px; position: relative" src="img/search_button.png" />
+            <input class="search__placeholder" type="text" placeholder="Что ищете?" />
+        </span>
+        <a href="/profile.html"><img style="padding: 3px 75px 3px 47px" src="img/profilephoto.jpg" /></a>
+    </header>
+    <main>
+        <img class="profile__photo" src="/img/bigprofilephoto.png">
+        <p style="font-weight: 600;" class="nickname">Nickname</p>
+        <p class="nameemail">@nameemail</p>
+        <div class="text-container">
+        <a>Созданные</a><div class="line"></div>
+        <a>Сохранённые</a>
+        </div>
+        
+        <!-- Контейнер галереи изображений -->
+    <div class="grid">
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/1.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/2.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/3.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/4.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/5.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/6.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/7.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/8.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/9.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/10.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/11.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/12.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/13.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/14.jpg" alt="" />
+        </a>
+        <!-- Изображение -->
+        <a href="">
+            <img class="img-fluid" src="img/15.jpg" alt="" />
+        </a>
+    </div>
+    <button class="other-button">Ещё</button>
+    </main>
+    <!-- Подключение и инициализация gridify.js -->
+    <script type="text/javascript" src="scripts/gridify.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var options = {
+                srcNode: "img", // grid items (class, node)
+                margin: "20px", // margin in pixel, default: 0px
+                width: "227px", // grid item width in pixel, default: 220px
+                max_width: "", // dynamic gird item width if specified, (pixel)
+                resizable: true, // re-layout if window resize
+                transition: "all 0.5s ease", // support transition for CSS3, default: all 0.5s ease
+            };
+            document.querySelector(".grid").gridify(options);
+        };
+    </script>
+    <!--end-->
+    <script>
+        // Основная функция, передаем в нее обрабатываемый тег
+        // или this (для текущего тега)
+        function helptip(t) {
+            // Разрешаем закрытие подсказок
+            // Создаем постоянную переменную этой функции для этих целей
+            // Условимся: если ноль, то можно закрывать, а если единица, то нельзя
+            helptip.v = 0;
+            // Берем последний дочерний тег
+            var b = t.children[t.children.length - 1];
+            // Если открыт, то закрываем
+            if (b.style.display == "block") helptipx();
+            else {
+                // Закрываем все
+                helptipx();
+                // Открываем текущий
+                b.style.display = "block";
+                // Запрещаем закрытие подсказки вызванного последующими событиями
+                helptip.v = 1;
+            }
+        }
+        // Функция закрывает все подсказки
+        function helptipx() {
+            // Если было нажатие для открытия подсказки, то закрывать нельзя
+            // Поэтому проверяем:
+            if (helptip.v == 1) {
+                // Разрешаем закрытие в будущем
+                helptip.v = 0;
+                // И выходим
+                return;
+            }
+            // Выбираем все теги с классом .helptip
+            var s = document.querySelectorAll(".helptip");
+            // и перебираем их циклом
+            for (var i = 0; i < s.length; i++) {
+                // Скрываем последний дочерний тег
+                s[i].children[s[i].children.length - 1].style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        let state = 0;
+        let  search__button = document.querySelector('#search__button');
+        let white = document.querySelector('.white__place');
+        search__button.addEventListener('click', function move(){  
+            if(state === 0){
+                search__button.src = 'img/close_button.png';
+                white.style.display = 'initial';
+                state = 1;
+            }
+            else{
+                search__button.src = 'img/search_button.png';
+                white.style.display = 'none';
+                state = 0;
+            } 
+        },false);
+    </script>
+</body>
+</html>
